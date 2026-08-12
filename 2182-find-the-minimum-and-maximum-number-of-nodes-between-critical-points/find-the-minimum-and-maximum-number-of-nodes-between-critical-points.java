@@ -17,16 +17,23 @@ class Solution {
         List<Integer> l=new ArrayList<>();
         int k=1;
         int min=Integer.MAX_VALUE;
-        int o=0;
+        int max=Integer.MIN_VALUE;
+        int first=0;
+        int last=0;
+        int x=0;
         ListNode prev=null;
         while(temp.next!=null){
             if(prev!=null){
                 if((temp.val>temp.next.val && temp.val>prev.val)||(temp.val<temp.next.val && temp.val<prev.val)){
                     l.add(k);
-                    if(o!=0){
-                        min=Math.min(min,k-o);
+                    last=k;
+                    if(first==0){
+                        first=k;
                     }
-                    o=k;
+                    if(x!=0){
+                        min=Math.min(min,k-x);
+                    }
+                    x=k;
                 }
             }
             k++;
@@ -38,7 +45,7 @@ class Solution {
         }
         int size=l.size();
         arr[0]=min;
-        arr[1]=l.get(size-1)-l.get(0);
+        arr[1]=last-first;
         return arr;
     }
 }
