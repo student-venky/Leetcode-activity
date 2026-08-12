@@ -23,7 +23,7 @@ class Solution {
             if(prev!=null){
                 if((temp.val>temp.next.val && temp.val>prev.val)||(temp.val<temp.next.val && temp.val<prev.val)){
                     l.add(k);
-                    if(l.size()>=2){
+                    if(o!=0){
                         min=Math.min(min,k-o);
                     }
                     o=k;
