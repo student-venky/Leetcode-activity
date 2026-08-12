@@ -6,12 +6,10 @@ class Solution {
         int max=Integer.MIN_VALUE;
         for(int i=0;i<n;i++){
             map.put(nums[i],map.getOrDefault(nums[i],0)+1);
-            if(map.get(nums[i])>k){
                 while(map.get(nums[i])>k){
                     map.put(nums[l],map.get(nums[l])-1);
                     l++;
                 }
-            }
             max=Math.max(i-l+1,max);
         }
         return max;
