@@ -14,7 +14,7 @@ class Solution {
         arr[0]=-1;
         arr[1]=-1;
         ListNode temp=head;
-        List<Integer> l=new ArrayList<>();
+        int cnt=0;
         int k=1;
         int min=Integer.MAX_VALUE;
         int max=Integer.MIN_VALUE;
@@ -25,7 +25,7 @@ class Solution {
         while(temp.next!=null){
             if(prev!=null){
                 if((temp.val>temp.next.val && temp.val>prev.val)||(temp.val<temp.next.val && temp.val<prev.val)){
-                    l.add(k);
+                    cnt++;
                     last=k;
                     if(first==0){
                         first=k;
@@ -40,10 +40,9 @@ class Solution {
             prev=temp;
             temp=temp.next;
         }
-        if(l.size()<2){
+        if(cnt<2){
             return arr;
         }
-        int size=l.size();
         arr[0]=min;
         arr[1]=last-first;
         return arr;
