@@ -24,7 +24,7 @@ class Solution {
         ListNode prev=null;
         while(temp.next!=null){
             if(prev!=null){
-                if((temp.val>temp.next.val && temp.val>prev.val)||(temp.val<temp.next.val && temp.val<prev.val)){
+                if((temp.val<temp.next.val && temp.val<prev.val)||(temp.val>temp.next.val && temp.val>prev.val)){
                     cnt++;
                     last=k;
                     if(first==0){
