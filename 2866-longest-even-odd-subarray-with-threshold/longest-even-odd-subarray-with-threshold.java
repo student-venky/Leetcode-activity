@@ -7,7 +7,7 @@ class Solution {
                 int l=i;
 
                 int r=i;
-                    while(r+1<n && (nums[r+1]<=threshold && nums[r]%2 != nums[r+1]%2 )){
+                    while(r+1<n && nums[r+1]<=threshold && nums[r]%2 != nums[r+1]%2 ){
                         r++;
                     }
                     max=Math.max(max,r-l+1);
