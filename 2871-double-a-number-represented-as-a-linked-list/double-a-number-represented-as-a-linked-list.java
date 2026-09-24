@@ -10,28 +10,28 @@
  */
 class Solution {
     public ListNode doubleIt(ListNode head) {
-        head=reverse(head);
-        ListNode root=new ListNode(-1);
-        ListNode prev=root;
-        ListNode temp=head;
+        ListNode dummy=reverse(head);
+        ListNode newNode=new ListNode(-1);
+        ListNode newtemp=newNode;
+        ListNode temp=dummy;
         int carry=0;
-        while(temp!=null||carry!=0){
-            int sum=0;
+        while(temp!=null || carry!=0){
+            int sum=carry;
             if(temp!=null){
-                sum=temp.val*2;
+                sum=carry+temp.val*2;
                 temp=temp.next;
             }
-            sum+=carry;
-            ListNode n=new ListNode(sum%10);
-            prev.next=n;
-            prev=n;
             carry=sum/10;
+            ListNode nine=new ListNode(sum%10);
+            newtemp.next=nine;
+            newtemp=nine;
         }
-        return reverse(root.next);
+        ListNode result=newNode.next;
+        return reverse(result);
     }
     public ListNode reverse(ListNode head){
-        ListNode prev=null;
         ListNode temp=head;
+        ListNode prev=null;
         while(temp!=null){
             ListNode next=temp.next;
             temp.next=prev;
