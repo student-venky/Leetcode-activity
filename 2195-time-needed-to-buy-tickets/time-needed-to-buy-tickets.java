@@ -1,6 +1,5 @@
 class Solution {
     public int timeRequiredToBuy(int[] tickets, int k) {
-        
         int n=tickets.length;
         int i=0;
         int cnt=0;
@@ -10,8 +9,7 @@ class Solution {
                 tickets[i]=tickets[i]-1;
                 cnt++;
             }
-            i++;
-            
+            i++; 
         }
         return cnt;
     }
